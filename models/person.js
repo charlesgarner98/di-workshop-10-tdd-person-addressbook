@@ -16,6 +16,23 @@ class Person {
   addPhoneNumber(number) {
     this.phoneNumbers.push(number)
   }
+  returnFormattedDetails() {
+    var details = []
+    details.push(this.fullname())
+    details.push('----------')
+    details.push('DOB: ' + this.dob)
+    details.push('')
+    details.push('Email Addresses:')
+    for (var email of this.emails) {
+      details.push('- ' + email)
+    }
+    details.push('')
+    details.push('Phone Numbers:')
+    for (var number of this.phoneNumbers) {
+      details.push('- ' + number)
+    }
+    return details.join('\r\n')
+  }
 }
 
 module.exports = Person
