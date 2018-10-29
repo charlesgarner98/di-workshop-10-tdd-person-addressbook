@@ -12,6 +12,7 @@ describe('Person', function() {
     expect(person.surname).to.equal('Bloggs')
     expect(person.dob).to.equal('1 Jan 1990')
     expect(person.emails).to.deep.equal([])
+    expect(person.phoneNumbers).to.deep.equal([])
   })
 
   it('should capitialise firstname', function() {
@@ -32,5 +33,13 @@ describe('Person', function() {
     person.addEmail('joe@example.com')
     person.addEmail('joe.bloggs@work.com')
     expect(person.emails).to.deep.equal(['joe@example.com','joe.bloggs@work.com'])
+  })
+
+  it('should accept new phone numbers and add them to the array', function() {
+    var person = new Person('Joe', 'Bloggs', '1 Jan 1990')
+
+    person.addPhoneNumber('01111111111')
+    person.addPhoneNumber('07777777777')
+    expect(person.phoneNumbers).to.deep.equal(['01111111111','07777777777'])
   })
 })
