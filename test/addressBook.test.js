@@ -6,13 +6,13 @@ var Person = require('../models/person.js')
 
 describe('Address Book', function() {
   it('should initialises properly', function(){
-    book = new AddressBook()
+    var book = new AddressBook()
     expect(book.entries).to.deep.equal([])
   })
 
   it('can add people to the book', function(){
-    book = new AddressBook()
-    person1 = new Person('Joe', 'Bloggs', '1 Jan 1990')
+    var book = new AddressBook()
+    var person1 = new Person('Joe', 'Bloggs', '1 Jan 1990')
 
     book.add(person1)
     expect(book.entries.length).to.equal(1)
@@ -24,8 +24,8 @@ describe('Address Book', function() {
   })
 
   it('should return search results in an array', function(){
-    book = new AddressBook()
-    person1 = new Person('Joe', 'Bloggs', '1 Jan 1990')
+    var book = new AddressBook()
+    var person1 = new Person('Joe', 'Bloggs', '1 Jan 1990')
     book.add(person1)
 
     expect(book.findByFirstName('Joe').length).to.equal(1)
@@ -37,8 +37,8 @@ describe('Address Book', function() {
   })
 
   it('should return search results in an array', function(){
-    book = new AddressBook()
-    person1 = new Person('Joe', 'Bloggs', '1 Jan 1990')
+    var book = new AddressBook()
+    var person1 = new Person('Joe', 'Bloggs', '1 Jan 1990')
     book.add(person1)
 
     expect(book.findBySurname('Bloggs').length).to.equal(1)
@@ -48,4 +48,5 @@ describe('Address Book', function() {
     expect(book.findBySurname('Bloggs')[0].emails).to.deep.equal([])
     expect(book.findBySurname('Bloggs')[0].phoneNumbers).to.deep.equal([])
   })
+
 })

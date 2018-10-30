@@ -23,6 +23,12 @@ class AddressBook {
     }
     return searchResults
   }
+  save() {
+    var fs = require('fs') //Require fs for file handling
+    
+    this.jsonString = JSON.stringify(this.entries, null, 2)
+    fs.writeFileSync('addressBook.json', this.jsonString, 'utf-8')
+  }
 }
 
 module.exports = AddressBook
