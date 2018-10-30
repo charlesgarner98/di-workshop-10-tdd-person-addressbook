@@ -35,4 +35,17 @@ describe('Address Book', function() {
     expect(book.findByFirstName('Joe')[0].emails).to.deep.equal([])
     expect(book.findByFirstName('Joe')[0].phoneNumbers).to.deep.equal([])
   })
+
+  it('should return search results in an array', function(){
+    book = new AddressBook()
+    person1 = new Person('Joe', 'Bloggs', '1 Jan 1990')
+    book.add(person1)
+
+    expect(book.findBySurname('Bloggs').length).to.equal(1)
+    expect(book.findBySurname('Bloggs')[0].firstName).to.equal('Joe')
+    expect(book.findBySurname('Bloggs')[0].surname).to.equal('Bloggs')
+    expect(book.findBySurname('Bloggs')[0].dob).to.equal('1 Jan 1990')
+    expect(book.findBySurname('Bloggs')[0].emails).to.deep.equal([])
+    expect(book.findBySurname('Bloggs')[0].phoneNumbers).to.deep.equal([])
+  })
 })

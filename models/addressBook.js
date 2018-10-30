@@ -14,6 +14,15 @@ class AddressBook {
     }
     return searchResults
   }
+  findBySurname(surname) {
+    var searchResults = []
+    for (var person of this.entries) {
+      if (person.surname == surname) {
+        searchResults.push(person)
+      }
+    }
+    return searchResults
+  }
 }
 
 module.exports = AddressBook
