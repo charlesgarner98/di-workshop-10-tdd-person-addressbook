@@ -11,4 +11,10 @@ describe('Pets', function() {
     expect(pet.animal).to.equal('cat')
 
   })
+  it('should return sound', function(){
+    var pet = new Pet('AdaCat', 'cat')
+
+    expect(pet.sound()).to.equal('Meow')
+
+  })
 })
