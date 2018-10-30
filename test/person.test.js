@@ -14,6 +14,7 @@ describe('Person', function() {
     expect(person.dob).to.equal('1 Jan 1990')
     expect(person.emails).to.deep.equal([])
     expect(person.phoneNumbers).to.deep.equal([])
+    expect(person.pets).to.deep.equal([])
   })
 
   it('should capitialise firstname', function() {
@@ -53,5 +54,22 @@ describe('Person', function() {
     person.addPhoneNumber('07654321987')
 
     expect(person.returnFormattedDetails()).to.equal('Joe Bloggs\r\n----------\r\nDOB: 1 Jan 1990\r\n\r\nEmail Addresses:\r\n- joe@example.com\r\n- joe.bloggs@workexample.com\r\n\r\nPhone Numbers:\r\n- 07712345678\r\n- 07654321987')
+  })
+
+  it('add pets to an array', function() {
+    var person = new Person('Joe', 'Bloggs', '1 Jan 1990')
+
+    var pet1 = new Pet('AdaCat', 'cat')
+    var pet2 = new Pet('Rover', 'dog')
+    var pet3 = new Pet('Nemo', 'fish')
+
+    person.addPet(pet1)
+    person.addPet(pet2)
+    person.addPet(pet3)
+
+    expect(person.pets.length).to.equal(3)
+    expect(person.pets[0].name).to.equal('AdaCat')
+    expect(person.pets[1].name).to.equal('Rover')
+    expect(person.pets[2].name).to.equal('Nemo')
   })
 })
