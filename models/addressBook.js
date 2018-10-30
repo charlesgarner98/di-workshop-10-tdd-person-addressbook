@@ -5,6 +5,15 @@ class AddressBook {
   add(person) {
     this.entries.push(person)
   }
+  findByFirstName(firstName) {
+    var searchResults = []
+    for (var person of this.entries) {
+      if (person.firstName == firstName) {
+        searchResults.push(person)
+      }
+    }
+    return searchResults
+  }
 }
 
 module.exports = AddressBook
