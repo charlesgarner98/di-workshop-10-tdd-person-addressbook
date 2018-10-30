@@ -1,7 +1,8 @@
 const chai = require('chai')
 const expect = chai.expect
 
-var Person = require('../models/Person.js')
+var Person = require('../models/person.js')
+var Pet = require('../models/pet.js')
 
 // Your Person test goes here!
 describe('Person', function() {
